@@ -1,0 +1,11 @@
+[*]
+indent_style = space
+
+[*.cpp]
+indent_size = 4
+
+[*.hpp]
+indent_size = 4
+
+[*.json]
+indent_size = 2
