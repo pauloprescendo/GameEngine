@@ -12,4 +12,6 @@ int main() {
         game.LateUpdate();
         game.Draw();
     }
+
+    return 0;
 }

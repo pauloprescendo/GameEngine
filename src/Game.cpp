@@ -1,7 +1,8 @@
 #include "Game.hpp"
 
 Game::Game() : window("that game engine") {
-
+    vikingTexture.loadFromFile(workingDir.Get() + "/resources/viking.png");
+    vikingSprite.setTexture(vikingTexture);
 }
 
 void Game::Update() {
@@ -12,7 +13,7 @@ void Game::LateUpdate() {}
 
 void Game::Draw() {
     window.BeginDraw();
-    // draw code here
+    window.Draw(vikingSprite);
     window.EndDraw();
 }
 
