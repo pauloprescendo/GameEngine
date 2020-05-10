@@ -14,11 +14,14 @@ class Game {
         void LateUpdate();
         void Draw();
         bool IsRunning() const;
+        void CalculateDeltaTime();
     private:
         Window window;
         WorkingDirectory workingDir;
         sf::Texture vikingTexture;
         sf::Sprite vikingSprite;
+        sf::Clock clock;
+        float deltaTime;
 };
 
 #endif
