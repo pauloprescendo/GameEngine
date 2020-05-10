@@ -1,12 +1,11 @@
 #ifndef Game_hpp
 #define Game_hpp
 
+#include <iostream>
 #include <SFML/Graphics.hpp>
 
 #include "Window.hpp"
 #include "WorkingDirectory.hpp"
-
-#include <iostream>
 
 class Game {
     public:
