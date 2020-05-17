@@ -22,39 +22,16 @@ Game::Game() : window("that game engine") {
 
 void Game::Update() {
     window.Update();
-
-    const sf::Vector2f spritePos = vikingSprite.getPosition();
-    const int moveSpeed = 100;
-
-    int xMove = 0;
-    if (input.IsKeyPressed(Input::Key::Left)) {
-        xMove = -moveSpeed;
-    }
-
-    if (input.IsKeyPressed(Input::Key::Right)) {
-        xMove = moveSpeed;
-    }
-
-    int yMove = 0;
-    if (input.IsKeyPressed(Input::Key::Up)) {
-        yMove = -moveSpeed;
-    }
-
-    if (input.IsKeyPressed(Input::Key::Down)) {
-        yMove = moveSpeed;
-    }
-
-    float xFrameMove = xMove * deltaTime;
-    float yFrameMove = yMove * deltaTime;
-
-    vikingSprite.setPosition(spritePos.x + xFrameMove, spritePos.y + yFrameMove);
+    sceneStateMachine.Update(deltaTime);
 }
 
-void Game::LateUpdate() {}
+void Game::LateUpdate() {
+    sceneStateMachine.LateUpdate(deltaTime);
+}
 
 void Game::Draw() {
     window.BeginDraw();
-    window.Draw(vikingSprite);
+    sceneStateMachine.Draw(window);
     window.EndDraw();
 }
 
@@ -67,5 +44,5 @@ void Game::CalculateDeltaTime() {
 }
 
 void Game::CaptureInput() {
-    input.Update();
+    sceneStateMachine.ProcessInput();
 }

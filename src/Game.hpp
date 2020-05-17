@@ -23,11 +23,11 @@ class Game {
     private:
         Window window;
         WorkingDirectory workingDir;
-        sf::Texture vikingTexture;
-        sf::Sprite vikingSprite;
+        // sf::Texture vikingTexture;
+        // sf::Sprite vikingSprite;
         sf::Clock clock;
         float deltaTime;
-        Input input;
+        // Input input;
         SceneStateMachine sceneStateMachine;
 };
 #endif

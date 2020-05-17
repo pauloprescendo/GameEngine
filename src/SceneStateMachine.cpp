@@ -28,9 +28,9 @@ void SceneStateMachine::Draw(Window& window) {
 
 unsigned int SceneStateMachine::Add(std::shared_ptr<Scene> scene) {
     auto inserted = scenes.insert(std::make_pair(insertedSceneID, scene));
-    insertedSceneID++;
+    // insertedSceneID++;
     inserted.first->second->OnCreate();
-    return insertedSceneID - 1;
+    return insertedSceneID++;
 }
 
 void SceneStateMachine::Remove(unsigned int id) {

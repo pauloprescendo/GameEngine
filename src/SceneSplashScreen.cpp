@@ -1,9 +1,9 @@
 #include "SceneSplashScreen.hpp"
 #include <iostream>
 
-SceneSplashScreen::SceneSplashScreen(WorkingDirectory &workingDir,
-                                     SceneStateMachine &sceneStateMachine,
-                                     Window &window)
+SceneSplashScreen::SceneSplashScreen(WorkingDirectory& workingDir,
+                                     SceneStateMachine& sceneStateMachine,
+                                     Window& window)
     : sceneStateMachine(sceneStateMachine), workingDir(workingDir),
       window(window), switchToState(0), currentSeconds(0.f),
       showForSeconds(3.f) {}
