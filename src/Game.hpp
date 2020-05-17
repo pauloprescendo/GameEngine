@@ -6,6 +6,7 @@
 
 #include "Window.hpp"
 #include "WorkingDirectory.hpp"
+#include "Input.hpp"
 
 class Game {
     public:
@@ -15,6 +16,7 @@ class Game {
         void Draw();
         bool IsRunning() const;
         void CalculateDeltaTime();
+        void CaptureInput();
     private:
         Window window;
         WorkingDirectory workingDir;
@@ -22,6 +24,7 @@ class Game {
         sf::Sprite vikingSprite;
         sf::Clock clock;
         float deltaTime;
+        Input input;
 };
 
 #endif
