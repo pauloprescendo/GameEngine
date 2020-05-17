@@ -12,10 +12,12 @@ class Window {
         void Draw(const sf::Drawable& drawable);
         void EndDraw();
 
+        sf::Vector2u GetCentre() const;
+
         bool IsOpen() const;
 
     private:
         sf::RenderWindow window;
 };
 
-#endif /* Window_hpp */
+#endif

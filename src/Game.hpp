@@ -7,6 +7,9 @@
 #include "Window.hpp"
 #include "WorkingDirectory.hpp"
 #include "Input.hpp"
+#include "SceneStateMachine.hpp"
+#include "SceneSplashScreen.hpp"
+#include "SceneGame.hpp"
 
 class Game {
     public:
@@ -25,6 +28,6 @@ class Game {
         sf::Clock clock;
         float deltaTime;
         Input input;
+        SceneStateMachine sceneStateMachine;
 };
-
 #endif

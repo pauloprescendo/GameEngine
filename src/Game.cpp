@@ -1,8 +1,21 @@
 #include "Game.hpp"
 
 Game::Game() : window("that game engine") {
-    vikingTexture.loadFromFile(workingDir.Get() + "/resources/viking.png");
-    vikingSprite.setTexture(vikingTexture);
+
+    std::shared_ptr<SceneSplashScreen> splashScreen =
+        std::make_shared<SceneSplashScreen>(workingDir,
+                                            sceneStateMachine,
+                                            window);
+
+    std::shared_ptr<SceneGame> gameScene =
+        std::make_shared<SceneGame>(workingDir);
+
+    unsigned int splashScreenID = sceneStateMachine.Add(splashScreen);
+    unsigned int gameSceneID = sceneStateMachine.Add(gameScene);
+
+    splashScreen->SetSwitchToScene(gameSceneID);
+
+    sceneStateMachine.SwitchTo(splashScreenID);
 
     deltaTime = clock.restart().asSeconds();
 }
@@ -21,7 +34,6 @@ void Game::Update() {
     if (input.IsKeyPressed(Input::Key::Right)) {
         xMove = moveSpeed;
     }
-
 
     int yMove = 0;
     if (input.IsKeyPressed(Input::Key::Up)) {

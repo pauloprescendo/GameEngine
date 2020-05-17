@@ -4,10 +4,10 @@ void Input::Update() {
     lastFrameKeys.SetMask(thisFrameKeys);
 
     thisFrameKeys.SetBit((int)Key::Left,
-                         (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) ||
+                        (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) ||
                         (sf::Keyboard::isKeyPressed(sf::Keyboard::A)));
     thisFrameKeys.SetBit((int)Key::Right,
-                         (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ||
+                        (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) ||
                         (sf::Keyboard::isKeyPressed(sf::Keyboard::D)));
 
     thisFrameKeys.SetBit((int)Key::Up,
@@ -19,7 +19,7 @@ void Input::Update() {
                         (sf::Keyboard::isKeyPressed(sf::Keyboard::S)));
 
     thisFrameKeys.SetBit((int)Key::Esc,
-        sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));
+                        sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));
 }
 
 bool Input::IsKeyPressed(Key keycode) {
