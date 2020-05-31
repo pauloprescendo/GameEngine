@@ -1,6 +1,7 @@
 #include "WorkingDirectory.hpp"
 
-WorkingDirectory::WorkingDirectory() {
+WorkingDirectory::WorkingDirectory()
+{
     path = "./";
 
     // #ifdef __APPLE__

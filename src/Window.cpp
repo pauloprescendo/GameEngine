@@ -1,35 +1,44 @@
 #include "Window.hpp"
 
-Window::Window(const std::string& windowName) : window(sf::VideoMode(800, 600), windowName, sf::Style::Titlebar) {
+Window::Window(const std::string &windowName) : window(sf::VideoMode(800, 600), windowName, sf::Style::Titlebar)
+{
     window.setVerticalSyncEnabled(true);
 }
 
-void Window::Update() {
+void Window::Update()
+{
     sf::Event event;
-    if (window.pollEvent(event)) {
-        if (event.type == sf::Event::Closed) {
+    if (window.pollEvent(event))
+    {
+        if (event.type == sf::Event::Closed)
+        {
             window.close();
         }
     }
 }
 
-void Window::BeginDraw() {
+void Window::BeginDraw()
+{
     window.clear(sf::Color::White);
 }
 
-void Window::Draw(const sf::Drawable& drawable) {
+void Window::Draw(const sf::Drawable &drawable)
+{
     window.draw(drawable);
 }
 
-void Window::EndDraw() {
+void Window::EndDraw()
+{
     window.display();
 }
 
-bool Window::IsOpen() const {
+bool Window::IsOpen() const
+{
     return window.isOpen();
 }
 
-sf::Vector2u Window::GetCentre() const {
+sf::Vector2u Window::GetCentre() const
+{
     sf::Vector2u size = window.getSize();
     return sf::Vector2u(size.x / 2, size.y / 2);
 }

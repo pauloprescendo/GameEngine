@@ -3,21 +3,22 @@
 
 #include <SFML/Graphics.hpp>
 
-class Window {
-    public:
-        Window(const std::string& windowName);
+class Window
+{
+public:
+    Window(const std::string &windowName);
 
-        void Update();
-        void BeginDraw();
-        void Draw(const sf::Drawable& drawable);
-        void EndDraw();
+    void Update();
+    void BeginDraw();
+    void Draw(const sf::Drawable &drawable);
+    void EndDraw();
 
-        sf::Vector2u GetCentre() const;
+    sf::Vector2u GetCentre() const;
 
-        bool IsOpen() const;
+    bool IsOpen() const;
 
-    private:
-        sf::RenderWindow window;
+private:
+    sf::RenderWindow window;
 };
 
 #endif

@@ -1,14 +1,15 @@
 #include "SceneSplashScreen.hpp"
 #include <iostream>
 
-SceneSplashScreen::SceneSplashScreen(WorkingDirectory& workingDir,
-                                     SceneStateMachine& sceneStateMachine,
-                                     Window& window)
+SceneSplashScreen::SceneSplashScreen(WorkingDirectory &workingDir,
+                                     SceneStateMachine &sceneStateMachine,
+                                     Window &window)
     : sceneStateMachine(sceneStateMachine), workingDir(workingDir),
       window(window), switchToState(0), currentSeconds(0.f),
       showForSeconds(3.f) {}
 
-void SceneSplashScreen::OnCreate() {
+void SceneSplashScreen::OnCreate()
+{
 
     splashTexture.loadFromFile(workingDir.Get() + "resources/" + "that_games_guy_logo.png");
     splashSprite.setTexture(splashTexture);
@@ -24,24 +25,29 @@ void SceneSplashScreen::OnCreate() {
     splashSprite.setPosition(windowCentre.x, windowCentre.y);
 }
 
-void SceneSplashScreen::OnActivate() {
+void SceneSplashScreen::OnActivate()
+{
     currentSeconds = 0.f;
 }
 
 void SceneSplashScreen::OnDestroy() {}
 
-void SceneSplashScreen::SetSwitchToScene(unsigned int id) {
+void SceneSplashScreen::SetSwitchToScene(unsigned int id)
+{
     switchToState = id;
 }
 
-void SceneSplashScreen::Update(float deltaTime) {
+void SceneSplashScreen::Update(float deltaTime)
+{
     currentSeconds += deltaTime;
 
-    if (currentSeconds >= showForSeconds) {
+    if (currentSeconds >= showForSeconds)
+    {
         sceneStateMachine.SwitchTo(switchToState);
     }
 }
 
-void SceneSplashScreen::Draw(Window &window) {
+void SceneSplashScreen::Draw(Window &window)
+{
     window.Draw(splashSprite);
 }

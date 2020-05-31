@@ -4,23 +4,27 @@
 #include "Scene.hpp"
 #include "Input.hpp"
 #include "WorkingDirectory.hpp"
+#include "Object.hpp"
+#include "C_Sprite.hpp"
+#include "C_KeyboardMovement.hpp"
 
-class SceneGame : public Scene {
-    public:
-        SceneGame(WorkingDirectory& workingDir);
+class SceneGame : public Scene
+{
+public:
+    SceneGame(WorkingDirectory &workingDir);
 
-        void OnCreate() override;
-        void OnDestroy() override;
-        
-        void ProcessInput() override;
-        void Update(float deltaTime) override;
-        void Draw(Window& window) override;
+    void OnCreate() override;
+    void OnDestroy() override;
 
-    private:
-        sf::Texture vikingTexture;
-        sf::Sprite vikingSprite;
+    void ProcessInput() override;
+    void Update(float deltaTime) override;
+    void Draw(Window &window) override;
+    void LateUpdate(float deltaTime) override;
 
-        WorkingDirectory& workingDir;
-        Input input;
+private:
+    std::shared_ptr<Object> player;
+
+    WorkingDirectory &workingDir;
+    Input input;
 };
 #endif

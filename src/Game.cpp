@@ -1,6 +1,7 @@
 #include "Game.hpp"
 
-Game::Game() : window("that game engine") {
+Game::Game() : window("that game engine")
+{
 
     std::shared_ptr<SceneSplashScreen> splashScreen =
         std::make_shared<SceneSplashScreen>(workingDir,
@@ -20,29 +21,35 @@ Game::Game() : window("that game engine") {
     deltaTime = clock.restart().asSeconds();
 }
 
-void Game::Update() {
+void Game::Update()
+{
     window.Update();
     sceneStateMachine.Update(deltaTime);
 }
 
-void Game::LateUpdate() {
+void Game::LateUpdate()
+{
     sceneStateMachine.LateUpdate(deltaTime);
 }
 
-void Game::Draw() {
+void Game::Draw()
+{
     window.BeginDraw();
     sceneStateMachine.Draw(window);
     window.EndDraw();
 }
 
-bool Game::IsRunning() const {
+bool Game::IsRunning() const
+{
     return window.IsOpen();
 }
 
-void Game::CalculateDeltaTime() {
+void Game::CalculateDeltaTime()
+{
     deltaTime = clock.restart().asSeconds();
 }
 
-void Game::CaptureInput() {
+void Game::CaptureInput()
+{
     sceneStateMachine.ProcessInput();
 }

@@ -3,11 +3,12 @@
 
 using namespace std;
 
-int main() {
-
+int main()
+{
     Game game;
 
-    while (game.IsRunning()) {
+    while (game.IsRunning())
+    {
         game.CaptureInput();
         game.Update();
         game.LateUpdate();

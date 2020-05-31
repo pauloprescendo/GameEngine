@@ -11,23 +11,24 @@
 #include "SceneSplashScreen.hpp"
 #include "SceneGame.hpp"
 
-class Game {
-    public:
-        Game();
-        void Update();
-        void LateUpdate();
-        void Draw();
-        bool IsRunning() const;
-        void CalculateDeltaTime();
-        void CaptureInput();
-    private:
-        Window window;
-        WorkingDirectory workingDir;
-        // sf::Texture vikingTexture;
-        // sf::Sprite vikingSprite;
-        sf::Clock clock;
-        float deltaTime;
-        // Input input;
-        SceneStateMachine sceneStateMachine;
+class Game
+{
+public:
+    Game();
+    void Update();
+    void LateUpdate();
+    void Draw();
+    bool IsRunning() const;
+    void CalculateDeltaTime();
+    void CaptureInput();
+
+private:
+    Window window;
+    WorkingDirectory workingDir;
+
+    sf::Clock clock;
+    float deltaTime;
+
+    SceneStateMachine sceneStateMachine;
 };
 #endif
